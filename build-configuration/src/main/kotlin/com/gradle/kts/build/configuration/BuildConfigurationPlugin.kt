@@ -25,14 +25,15 @@ class BuildConfigurationPlugin : Plugin<Project> {
 
     private fun Project.applyPlugins() {
         allprojects {
+            apply(plugin = "java")
+            apply(plugin = "org.jetbrains.kotlin.jvm")
             apply(plugin = "org.springframework.boot")
-//            apply(plugin = "org.graalvm.buildtools.native")
+            apply(plugin = "org.gradle.maven-publish")
+            apply(plugin = "build-configuration-plugin")
             apply(plugin = "io.spring.dependency-management")
             apply(plugin = "org.jetbrains.kotlin.plugin.spring")
             apply(plugin = "org.jetbrains.kotlin.plugin.jpa")
-            apply(plugin = "org.gradle.maven-publish")
-            apply(plugin = "org.jetbrains.kotlin.jvm")
-            apply(plugin = "build-configuration-plugin")
+//            apply(plugin = "org.graalvm.buildtools.native")
         }
     }
 

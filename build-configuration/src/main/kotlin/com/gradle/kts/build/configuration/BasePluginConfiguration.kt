@@ -17,6 +17,7 @@ abstract class BasePluginConfiguration : Plugin<Project> {
     private fun Project.applyPlugins() {
         allprojects {
             apply(plugin = "build-configuration-plugin")
+            apply(plugin = "java")
         }
     }
 
@@ -24,6 +25,7 @@ abstract class BasePluginConfiguration : Plugin<Project> {
         allprojects {
             afterEvaluate {
                 dependencies {
+                    implementation("org.jetbrains.kotlin:kotlin-stdlib")
                     fasterXmlJackson()
                     kotlinDeps()
                 }
